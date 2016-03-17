@@ -13,7 +13,7 @@ Features :
 Specifications : ​
 The system should incorporate the following commands :­ 
  
- -  IndexGet ­­--flag (args) 
+1.  IndexGet ­­--flag (args) 
 	○ can request the display of the shared files on the connected system. 
 	○ the   history   of   requests   made   by   either   clients   should   be   maintained   at   each   of  the clients respectively. 
 	○ the ​flag ​variable can be ​shortlist, longlist or regex. 
@@ -25,7 +25,7 @@ The system should incorporate the following commands :­
 			● Output : ​similar to above, but with complete file listing. 
 		
  
-  - FileHash --­­flag (args) : 
+2. FileHash --­­flag (args) : 
 	○ this   command   indicates   that   the   client   wants   to   check   if   any   of   the   files   on   the  other   end   have   been   changed.   The   flag   variable   can   take   two   values,  verify  and checkall​ : 
 		1. verify   : flag   should   check   for   the   specific   file   name   provided   as  command   line   argument   and return   its   ‘checksum’   and   ‘last­modified’  timestamp. 
 			● $> FileHash ­­verify <filename> 
@@ -34,13 +34,13 @@ The system should incorporate the following commands :­
 			● $> FileHash ­­checkall 
 			● Output   :   ​filename,   checksum   and   last­modified   timestamp   of   all  the files in the shared directory. 
 
-  - FileDownload --­­flag (args): 
+3. FileDownload --­­flag (args): 
 	○ as   the   name   suggests,   would   be   used   to   download   files   from   the   shared   folder  of connected user to our shared folder. 
 	○ If   a   socket   is   not   available,   it   should   be   created   and   both   clients   must   use   this  socket for file transfer. 
 		■ $> FileDownload <filename> 
 		■ Output   :   ​should   contain   the   filename,   filesize,   last­modified   timestamp  and the MD5­hash of the requested file. 
 
-  - FileUpload --­­flag (args): 
+4. FileUpload --­­flag (args): 
 	○ as   the   name   suggests,   would   be   used   to   upload   a   file   to   the   other   clients  shared folder. 
 	○ The   other   client   side   may   respond   to   this   request   with   a   ​FileUploadDeny   ​or FileUploadAllow  request   which   would   cancel   or   proceed   with   the   transfer,  respectively. 
 	○ The   client   should   upload   the   file,   its   MD5­hash   and   last­modified   timestamp   if  the   response   is FileUploadAllow   and   go   back   to   listening   to   the   communication  channel if the response if FileUploadDeny. 
